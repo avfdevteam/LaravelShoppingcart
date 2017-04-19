@@ -545,4 +545,22 @@ class Cart
 
         return number_format($value, $decimals, $decimalPoint, $thousandSeperator);
     }
+    
+    /**
+	 * Check if the item exists in the cart
+	 *
+	 * @param $identifier
+	 * @internal param mixed $id
+	 * @return boolean
+	 */
+	public function has($identifier)
+	{
+		$data = $this->getContent();
+		foreach ($data as $item) {
+			if ($item->id == $identifier) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
